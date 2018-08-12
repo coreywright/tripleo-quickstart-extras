@@ -20,3 +20,4 @@ whole_disk_images: false
 
 download_overcloud_image: false
 overcloud_full_tar_name: overcloud-full.tar
+install_overcloud_images: false

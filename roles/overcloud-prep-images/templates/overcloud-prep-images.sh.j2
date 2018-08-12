@@ -27,6 +27,17 @@ curl -L -O "{{ overcloud_image_url }}"
 tar xvfp {{ overcloud_full_tar_name }}
 {% endif %}
 
+{% if install_overcloud_images|bool %}
+
+## * Install specific Overcloud images
+## ::
+
+sudo yum install -y rhosp-director-images rhosp-director-images-ipa
+rm -vf overcloud-full.tar ironic-python-agent.tar
+tar xvf /usr/share/rhosp-director-images/overcloud-full.tar
+tar xvf /usr/share/rhosp-director-images/ironic-python-agent.tar
+{% endif %}
+
 {% if step_overcloud_image|bool %}
 
 ## * Upload images to glance.
